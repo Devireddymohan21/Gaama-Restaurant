@@ -3,26 +3,33 @@ import axios from 'axios'
 import {useState} from 'react'
 
 function Menu() {
-    let v=0;
-    const [list,setList]=useState('');
+    const [record,setRecord]=useState([]);
     const mainmenu= async () => {
       const response= await axios.get('http://localhost:8005/menu');
-      setList(response.data.categories);
-      for (let v in list){
-        console.log(list[v]['idCategory'],list[v]['strCategory']);
-        console.log(list[v]['strCategoryDescription']);
+      setRecord(response.data.categories);
+      for (let v in record){
+        console.log(record[v]['idCategory'],record[v]['strCategory']);
+        console.log(record[v]['strCategoryDescription']);
       }
     };
     
-    console.log(list.data);
+    console.log(record);
   return (
     <div>
-        menu list
-        <p>Available items</p>
-        <button onClick={mainmenu}>list</button>
+        <h1><strong>Welcome to the Gaama Restaurant</strong></h1>
+        <p><small>It is place for Bringing Homestyle Flavors to Your Table!!!</small></p>
+        <button onClick={mainmenu}>Menu</button>
         <div>
-          <p><strong>category type: </strong>{list[v].strCategory}</p>
-          {/* <p><strong>Description : </strong>{list['strCategoryDescription']}</p> */}
+          <ul>
+          <p>Available items are:</p>
+          {record.map((records, index) => (
+          <li key={index}>
+          <p><strong>category ID: </strong>{records.idCategory}</p>
+          <p><strong>category type: </strong>{records.strCategory}</p>
+          <p><strong>Description: </strong>{records.strCategoryDescription}</p>
+        </li>
+        ))}
+          </ul>
         </div>
     </div>
   )
