@@ -33,7 +33,7 @@ class Randommeal(basehandler):
 
 class mealbycategory(basehandler):
     def get(self):
-        category='Chicken'
+        category=self.get_argument('category')
         url=f"https://www.themealdb.com/api/json/v1/1/filter.php?c={category}"
         response=requests.get(url)
         res=response.json()
