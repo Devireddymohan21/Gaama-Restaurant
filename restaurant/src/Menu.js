@@ -20,16 +20,15 @@ function Menu() {
         <p><small>It is place for Bringing Homestyle Flavors to Your Table!!!</small></p>
         <button onClick={mainmenu}>Menu</button>
         <div>
-          <ul>
           <p>Available items are:</p>
-          {record.map((records, index) => (
-          <li key={index}>
-          <p><strong>category ID: </strong>{records.idCategory}</p>
-          <p><strong>category type: </strong>{records.strCategory}</p>
-          <p><strong>Description: </strong>{records.strCategoryDescription}</p>
-        </li>
+          {record.map((records) => (
+          <div>
+            <p><strong>category ID: </strong>{records.idCategory}</p>
+            <p><strong>category type: </strong>{records.strCategory}</p>
+            <img src={records.strCategoryThumb}/>
+            <p><strong>Description: </strong>{records.strCategoryDescription}</p>
+          </div>
         ))}
-          </ul>
         </div>
     </div>
   )

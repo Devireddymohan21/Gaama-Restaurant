@@ -15,12 +15,12 @@ function RandMeal() {
         <div>
           <p><strong>Meal : </strong>{meal.strMeal}</p>
           <p><strong>category_type : </strong>{meal.strCategory}</p>
-          <p><strong>Making_Instructions : </strong>{meal.strInstructions}</p>
+          <img src={meal.strMealThumb} width='300px' height='250px'/>
+          <p><strong>Country : </strong>{meal.strArea}</p>
         </div>
       </div>
   )
 }
-
 
 
 export default RandMeal

@@ -9,12 +9,12 @@ function MealbyCat() {
   const [loading, setLoading]=useState(false);
   
   const fetchcategories= async ()=>{
-      const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/list.php?c=list`);
+      const response = await axios.get(`http://localhost:8005/catlist`);
       return response.data.meals;
   };
 
   const handlefetchmeals = async () => {
-    const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${selectedcatgy}`);
+    const response = await axios.get(`http://localhost:8005/catgy?category=${selectedcatgy}`);
       setLoading(true);
       console.log(response.data.meals);
       for (let v in response.data.meals){
@@ -24,13 +24,13 @@ function MealbyCat() {
   }
   const fetchmealsbycatgy = async () => {
     if(selectedcatgy){
-      console.log(selectedcatgy);
-      const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${selectedcatgy}`);
-      setLoading(true);
-      console.log(response.data.meals);
-      for (let v in response.data.meals){
-        console.log(response.data.meals[v]['strMeal'], response.data.meals[v]['idMeal']);
-      }
+      // console.log(selectedcatgy);
+      // const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${selectedcatgy}`);
+      // setLoading(true);
+      // console.log(response.data.meals);
+      // for (let v in response.data.meals){
+      //   console.log(response.data.meals[v]['strMeal'], response.data.meals[v]['idMeal']);
+      // }
       const res = await handlefetchmeals();
       setMeals(res);
       console.log(res);
@@ -71,16 +71,14 @@ function MealbyCat() {
                 Fetch Meals
         </button>
         {meals && loading && (
-            <div className="Meals-card">
-              <div>
-              {meals.map((meal) => (
-                <div>
-                <p> {meal.strMeal}</p>
-                <img src={meal.strMealThumb}/>
-                </div>
-              ))}
-              </div>
+          <div className="Meals-List">
+          {meals.map((meal) => (
+            <div className='meals-card'>
+            <p> {meal.strMeal}</p>
+            <img src={meal.strMealThumb} width='300px' height='300px'/>
             </div>
+          ))}
+          </div>
         )}
       </div>
     </div>
