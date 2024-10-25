@@ -39,9 +39,39 @@ class mealbycategory(basehandler):
         res=response.json()
         self.write(res)
 
+class mealbyarea(basehandler):
+    def get(self):
+        area=self.get_argument('area')
+        url=f"https://www.themealdb.com/api/json/v1/1/filter.php?a={area}"
+        response=requests.get(url)
+        res=response.json()
+        self.write(res)
+
+class mealbyingredient(basehandler):
+    def get(self):
+        ingredient=self.get_argument('ingredient')
+        url=f"https://www.themealdb.com/api/json/v1/1/filter.php?i={ingredient}"
+        response=requests.get(url)
+        res=response.json()
+        self.write(res)
+
 class categorylist(basehandler):
     def get(self):
         url=f"https://www.themealdb.com/api/json/v1/1/list.php?c=list"
+        response=requests.get(url)
+        res=response.json()
+        self.write(res)
+
+class arealist(basehandler):
+    def get(self):
+        url=f"https://www.themealdb.com/api/json/v1/1/list.php?a=list"
+        response=requests.get(url)
+        res=response.json()
+        self.write(res)
+
+class ingredlist(basehandler):
+    def get(self):
+        url=f"https://www.themealdb.com/api/json/v1/1/list.php?i=list"
         response=requests.get(url)
         res=response.json()
         self.write(res)
@@ -53,6 +83,10 @@ def make_app():
         (r"/rand",Randommeal),
         (r"/catgy",mealbycategory),
         (r"/catlist",categorylist),
+        (r"/aremeal",mealbyarea),
+        (r"/arealist",arealist),
+        (r"/ingredlist",ingredlist),
+        (r"/ingredmeal",mealbyingredient),
     ]
     )
 if __name__=="__main__":

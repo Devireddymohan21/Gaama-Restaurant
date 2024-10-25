@@ -5,7 +5,6 @@ function MealbyCat() {
   const [categories, setCategories]=useState([]);
   const [selectedcatgy,setSelectedcatgy]=useState('');
   const [meals,setMeals]=useState([]);
-  // let meals=[];
   const [loading, setLoading]=useState(false);
   
   const fetchcategories= async ()=>{
@@ -24,13 +23,6 @@ function MealbyCat() {
   }
   const fetchmealsbycatgy = async () => {
     if(selectedcatgy){
-      // console.log(selectedcatgy);
-      // const response = await axios.get(`https://www.themealdb.com/api/json/v1/1/filter.php?c=${selectedcatgy}`);
-      // setLoading(true);
-      // console.log(response.data.meals);
-      // for (let v in response.data.meals){
-      //   console.log(response.data.meals[v]['strMeal'], response.data.meals[v]['idMeal']);
-      // }
       const res = await handlefetchmeals();
       setMeals(res);
       console.log(res);
@@ -52,6 +44,7 @@ function MealbyCat() {
     categorieslist();
   },[])
   console.log('mealghnn',meals);
+
   return (
     <div>
       <div className='form-grp'>
@@ -70,12 +63,14 @@ function MealbyCat() {
         <button className="btn btn-primary" onClick={fetchmealsbycatgy} >
                 Fetch Meals
         </button>
+
         {meals && loading && (
           <div className="Meals-List">
           {meals.map((meal) => (
             <div className='meals-card'>
             <p> {meal.strMeal}</p>
-            <img src={meal.strMealThumb} width='300px' height='300px'/>
+            <img src={meal.strMealThumb} width='350px' height='350px' alt="Mealitem"/>
+            <hr/>
             </div>
           ))}
           </div>

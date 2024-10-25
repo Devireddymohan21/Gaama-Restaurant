@@ -4,9 +4,12 @@ import {useState} from 'react'
 
 function Menu() {
     const [record,setRecord]=useState([]);
+    const [loading,setLoading]=useState(false);
+
     const mainmenu= async () => {
       const response= await axios.get('http://localhost:8005/menu');
       setRecord(response.data.categories);
+      setLoading(true);
       for (let v in record){
         console.log(record[v]['idCategory'],record[v]['strCategory']);
         console.log(record[v]['strCategoryDescription']);
@@ -19,17 +22,20 @@ function Menu() {
         <h1><strong>Welcome to the Gaama Restaurant</strong></h1>
         <p><small>It is place for Bringing Homestyle Flavors to Your Table!!!</small></p>
         <button onClick={mainmenu}>Menu</button>
+        {record && loading && (
         <div>
           <p>Available items are:</p>
           {record.map((records) => (
           <div>
             <p><strong>category ID: </strong>{records.idCategory}</p>
             <p><strong>category type: </strong>{records.strCategory}</p>
-            <img src={records.strCategoryThumb}/>
+            <img src={records.strCategoryThumb} widht="200px" height="250px" alt="Mealitem"/>
             <p><strong>Description: </strong>{records.strCategoryDescription}</p>
+            <hr/>
           </div>
         ))}
         </div>
+        )}
     </div>
   )
 }
