@@ -9,8 +9,8 @@ function RandMeal() {
         setMeal(response.data.meals['0']);
         setLoading(true);
         console.log(meal);
-
     }
+    
   return (
     <div>
         <p><strong>Click on the randomone to get random dish on ur Table</strong></p>
