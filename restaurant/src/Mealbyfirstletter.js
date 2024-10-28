@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import axios from 'axios';
+import "./Dashboard.css"
 
 function Mealbyfirstletter() {
     const [meal,setMeal]=useState([]);
@@ -33,8 +34,7 @@ function Mealbyfirstletter() {
                 <p><strong>Meal : </strong>{meal.strMeal}</p>
                 <p><strong>category_type : </strong>{meal.strCategory}</p>
                 <p><strong>Country : </strong>{meal.strArea}</p>
-                <img src={meal.strMealThumb} width='350px' height='350px' alt="Mealitem"/>
-                <hr/>
+                <img src={meal.strMealThumb} width='250px' height='250px' alt="Mealitem"/>
             </div>
           ))}
         </div>

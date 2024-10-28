@@ -1,7 +1,7 @@
-import React from 'react'
-import axios from 'axios'
-import {useState} from 'react'
-
+import React from 'react';
+import axios from 'axios';
+import {useState} from 'react';
+import "./Dashboard.css";
 function Menu() {
     const [record,setRecord]=useState([]);
     const [loading,setLoading]=useState(false);
@@ -17,26 +17,31 @@ function Menu() {
     };
     
     console.log(record);
+
   return (
     <div>
         <h1><strong>Welcome to the Gaama Restaurant</strong></h1>
         <p><small>It is place for Bringing Homestyle Flavors to Your Table!!!</small></p>
         <button onClick={mainmenu}>Menu</button>
         {record && loading && (
-        <div>
-          <p>Available items are:</p>
-          {record.map((records) => (
           <div>
-            <p><strong>category ID: </strong>{records.idCategory}</p>
-            <p><strong>category type: </strong>{records.strCategory}</p>
-            <img src={records.strCategoryThumb} widht="200px" height="250px" alt="Mealitem"/>
-            <p><strong>Description: </strong>{records.strCategoryDescription}</p>
-            <hr/>
+          <p>Available items are:</p>
+        <div className='meal-container'>
+          
+          {record.map((records) => (
+          <div className='meal-card'>
+            <p>{records.strCategory}</p>
+            <br/>
+            <img src={records.strCategoryThumb} width="150px" height="100px" alt="Mealitem" onClick={() => window.open(`/catgy/${records.strCategory}`, '_blank')}  title={records.strCategoryDescription}/>
           </div>
+          
         ))}
         </div>
+        </div>
         )}
+        
     </div>
+
   )
 }
 

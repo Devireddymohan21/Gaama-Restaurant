@@ -1,7 +1,7 @@
 import React from 'react';
 import { useState } from 'react';
 import axios from 'axios';
-
+import "./Dashboard.css";
 function MealbyName() {
     const [meal,setMeal]=useState([]);
     const [loading,setLoading]=useState(false);
@@ -35,7 +35,6 @@ function MealbyName() {
                 <p><strong>category_type : </strong>{meal.strCategory}</p>
                 <p><strong>Country : </strong>{meal.strArea}</p>
                 <img src={meal.strMealThumb} width='350px' height='350px' alt="Mealitem"/>
-                <hr/>
             </div>
           ))}
         </div>

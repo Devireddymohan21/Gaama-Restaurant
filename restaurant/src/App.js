@@ -7,6 +7,7 @@ import MealbyArea from "./MealbyArea";
 import MealbyIngred from "./MealbyIngred";
 import MealbyName from "./MealbyName";
 import Mealbyfirstletter from "./Mealbyfirstletter";
+import './App.css'
 function App() {
   return (
     <Router>
@@ -14,7 +15,7 @@ function App() {
         <Routes>
           <Route path='/' element={<Menu/>}/>
           <Route path='/rand' element={<RandMeal/>}/>
-          <Route path='/catgy' element={<MealbyCat/>}/>
+          <Route path='/catgy/:category' element={<MealbyCat/>}/>
           <Route path="/area" element={<MealbyArea/>}/>     
           <Route path="/ingred" element={<MealbyIngred/>}/>   
           <Route path="/name" element={<MealbyName/>}/>

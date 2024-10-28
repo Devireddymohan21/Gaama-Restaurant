@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import React from "react";
 import axios from "axios";
+import "./Dashboard.css"
 
 function MealbyArea() {
     const [meals, setMeals] = useState([]);
@@ -23,26 +24,27 @@ function MealbyArea() {
                 const response = await fetchmeals();
                 if (response) {
                     setMeals(response.data.meals);
-                    setLoading(false);
                 }
+            }
             else{
                 setLoading(false);
             }  
-            }
+
         };
         getMeals();
-    }, [selectedarea]); // Runs whenever selectedarea changes
+    }, [selectedarea]);
 
     return (
         <div>
             <div>
                 {meals && loading && (
                     <div className="forg-manie">
+                        <p>
+                            <strong>Available meals in: </strong>{selectedarea}</p>
                         {meals.map((meal) => (
                             <div key={meal.idMeal}>
                                 <p><strong>Meal : </strong>{meal.strMeal}</p>
                                 <img src={meal.strMealThumb} width="350px" height="350px" alt="Mealitem"/>
-                                <hr/>
                             </div>
                         ))}
                     </div>
