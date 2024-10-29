@@ -1,7 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import {useState} from 'react';
-import "./Dashboard.css";
+import "./Class.css";
 function Menu() {
     const [record,setRecord]=useState([]);
     const [loading,setLoading]=useState(false);

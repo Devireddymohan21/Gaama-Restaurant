@@ -16,11 +16,11 @@ function RandMeal() {
         <p><strong>Click on the randomone to get random dish on ur Table</strong></p>
         <button onClick={mainmenu}>RandomOne</button>
         {meal && loading && (
-        <div>
+        <div className='meal-card'>
           <p><strong>Meal : </strong>{meal.strMeal}</p>
           <p><strong>category_type : </strong>{meal.strCategory}</p>
-          <img src={meal.strMealThumb} width='350px' height='350px' alt="Mealitem"/>
           <p><strong>Country : </strong>{meal.strArea}</p>
+          <img src={meal.strMealThumb} width='350px' height='350px' alt="Mealitem"/>
         </div>
         )}
       </div>

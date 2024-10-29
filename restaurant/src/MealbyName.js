@@ -28,12 +28,10 @@ function MealbyName() {
       </div>
         
         {meal && loading && (
-        <div>
+        <div className="meal-container">
           {meal.map((meal)=>(
-            <div>
-                <p><strong>Meal : </strong>{meal.strMeal}</p>
-                <p><strong>category_type : </strong>{meal.strCategory}</p>
-                <p><strong>Country : </strong>{meal.strArea}</p>
+            <div className="meal-card">
+                <p>{meal.strMeal}</p>
                 <img src={meal.strMealThumb} width='350px' height='350px' alt="Mealitem"/>
             </div>
           ))}

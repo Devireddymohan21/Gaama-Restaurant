@@ -55,19 +55,6 @@ class mealbyingredient(basehandler):
         res=response.json()
         self.write(res)
 
-class categorylist(basehandler):
-    def get(self):
-        url=f"https://www.themealdb.com/api/json/v1/1/list.php?c=list"
-        response=requests.get(url)
-        res=response.json()
-        self.write(res)
-
-class arealist(basehandler):
-    def get(self):
-        url=f"https://www.themealdb.com/api/json/v1/1/list.php?a=list"
-        response=requests.get(url)
-        res=response.json()
-        self.write(res)
 
 class ingredlist(basehandler):
     def get(self):
@@ -82,9 +69,7 @@ def make_app():
         (r"/menu",Menu),
         (r"/rand",Randommeal),
         (r"/catgy",mealbycategory),
-        (r"/catlist",categorylist),
         (r"/aremeal",mealbyarea),
-        (r"/arealist",arealist),
         (r"/ingredlist",ingredlist),
         (r"/ingredmeal",mealbyingredient),
     ]

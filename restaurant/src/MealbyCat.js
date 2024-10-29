@@ -47,7 +47,7 @@ function MealbyCat() {
             <div className='meal-card'>
             <p> {meal.strMeal}</p>
             <br/>
-            <img src={meal.strMealThumb} width='350px' height='250px' alt="Mealitem"/>
+            <img src={meal.strMealThumb} width='200px' height='150px' alt="Mealitem"/>
             </div>
           ))}
           </div>

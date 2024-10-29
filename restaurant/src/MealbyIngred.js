@@ -65,10 +65,10 @@ function MealbyIngred() {
 
         <button onClick={meallist}>Fetch Meals</button>
         {items && loading && (
-        <div className="forg-manie">
+        <div className="meal-container">
             {items.map((item) => (
-                <div>
-                    <p><strong>Meal : </strong>{item.strMeal}</p>
+                <div className='meal-card'>
+                    <p>{item.strMeal}</p>
                     <img src={item.strMealThumb} width="350px" height="350px" alt="Mealitem"/>
                     <hr/>
                 </div>

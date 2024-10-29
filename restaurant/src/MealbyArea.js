@@ -36,17 +36,19 @@ function MealbyArea() {
 
     return (
         <div>
-            <div>
+            <div >
                 {meals && loading && (
-                    <div className="forg-manie">
-                        <p>
-                            <strong>Available meals in: </strong>{selectedarea}</p>
+                    <div>
+                    <p><strong>Available meals in: </strong>{selectedarea}</p>
+                    <div className="meal-container">
+                        
                         {meals.map((meal) => (
-                            <div key={meal.idMeal}>
-                                <p><strong>Meal : </strong>{meal.strMeal}</p>
+                            <div className="meal-card" key={meal.idMeal}>
+                                <p>{meal.strMeal}</p>
                                 <img src={meal.strMealThumb} width="350px" height="350px" alt="Mealitem"/>
                             </div>
                         ))}
+                    </div>
                     </div>
                 )}
             </div>
