@@ -1,0 +1,131 @@
+
+body {
+    background: linear-gradient( #0758a8, #fdfdfd);
+    color: #ffffff;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+}
+
+
+h2 {
+    text-align: center;
+    font-size: 2em;
+    color: #fff1e6;
+    margin-top: 30px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    animation: fadeIn 2s ease-in;
+}
+
+
+body {
+    background-size: 200% 200%;
+    animation: backgroundPan 10s infinite alternate ease-in-out;
+}
+
+.searchbar {
+    padding: 12px;
+    font-size: 18px;
+    width: 250px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    background-color: #fff1e6;
+    color: #333;
+    margin-right: 10px;
+    transition: transform 0.3s ease;
+}
+
+.searchbar:focus {
+    transform: scale(1.05);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+}
+
+button.btn {
+    background-color: #ff6f61;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 25px;
+    color: #fff;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+button.btn:hover {
+    background-color: #ff4c3b;
+}
+
+.meal-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 40px;
+}
+
+.meal-card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    padding: 10px;
+    width: 350px;
+    max-width: 100%;
+    text-align: center;
+    color: #fff;
+    transition: transform 0.3s ease;
+    animation: fadeInUp 0.5s ease-in-out;
+}
+
+.meal-card:hover {
+    transform: translateY(-10px) scale(1.05);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.3);
+}
+
+.meal-card img {
+    border-radius: 15px;
+    width: 300px;
+    height: 300px;
+    margin-bottom: 15px;
+    transition: transform 0.3s ease;
+}
+
+.meal-card img:hover {
+    transform: scale(1.05);
+}
+
+.meal-card p {
+    font-size: 18px;
+    margin: 8px 0;
+    color: #fff1e6;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background: rgba(0, 0, 0, 0.3);
+    color: #fff1e6;
+}
+
+footer h2 {
+    color: #ff6f61;
+    margin-bottom: 15px;
+    font-size: 1.5em;
+}
+
+footer a {
+    color: #ff6f61;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.1em;
+    padding: 0 8px;
+}
+
+footer a:hover {
+    color: #ff4c3b;
+}
+
